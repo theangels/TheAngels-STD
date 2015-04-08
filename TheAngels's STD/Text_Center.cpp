@@ -18,5 +18,6 @@ int main(void)
 	cin >> del;
 	Link_Delete(test, del);
 	Link_Traver(test);
+	Link_Destory(test);
 	return 0;
 }

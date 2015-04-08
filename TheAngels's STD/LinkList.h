@@ -78,5 +78,8 @@ void Link_Destory(Link &p)
 		now = now->next;
 		delete(des);
 	}
+	p.head = NULL;
+	p.tail = NULL;
+	p.len = 0;
 	return;
 }
