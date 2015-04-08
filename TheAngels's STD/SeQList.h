@@ -1,4 +1,3 @@
-typedef int ElemType;
 #define MAX_SQ 50
 typedef struct
 {
@@ -6,7 +5,7 @@ typedef struct
 	int length;
 	int MaxSize;	
 }SqList;
-int _time=2;
+int SeQ_Time=2;
 void InitList(SqList &L)
 {
 	L.MaxSize = MAX_SQ;
@@ -39,8 +38,8 @@ void ListInsert(SqList &L, int ind, ElemType e)
 {
 	if(L.length==L.MaxSize)
 	{
-		L.Elem=(ElemType *)realloc(L.Elem,_time*L.MaxSize*sizeof(ElemType));
-		_time++;
+		L.Elem = (ElemType *)realloc(L.Elem, SeQ_Time*L.MaxSize*sizeof(ElemType));
+		SeQ_Time++;
 	}
 	for(int i = L.length-1; i >= ind-1; i--)
 		L.Elem[i+1]=L.Elem[i];

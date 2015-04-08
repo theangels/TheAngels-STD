@@ -22,6 +22,7 @@
 #include <queue>
 #include <stack>
 #include <vector>
+typedef int ElemType;
 using namespace std;
 //@ Fast Input
 int Get_uInt()
@@ -38,5 +39,4 @@ int Get_uInt()
 	}
 	return ret;
 }
-
 
