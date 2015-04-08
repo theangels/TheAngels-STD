@@ -24,6 +24,7 @@ void Link_Add(Link &p, const ElemType &add)
 	LinkNode *tmp = new LinkNode(add);
 	tmp->next = NULL;
 	tmp->pre = p.tail;
+	p.tail->next = tmp;
 	p.tail = tmp;
 	p.len++;
 	return;
