@@ -1,26 +1,71 @@
 #define MAX_Mat 100
-struct Matrix
+class Matrix
 {
+public:
 	int tab[MAX_Mat][MAX_Mat];
 	int h, l;
 	Matrix() :h(), l(){}
 	Matrix(int __h, int __l)
 		:h(__h), l(__l){}
+public:
+	Matrix &operator += (const Matrix &other)
+	{
+		for (int i = 0; i < h; i++)
+			for (int j = 0; j < l; j++)
+				tab[i][j] += other.tab[i][j];
+		return *this;
+	}
+	Matrix &operator -= (const Matrix &other)
+	{
+		for (int i = 0; i < h; i++)
+			for (int j = 0; j <l; j++)
+				tab[i][j] -= other.tab[i][j];
+		return *this;
+	}
+	Matrix &operator *= (const Matrix &other)
+	{
+		Matrix input;
+		input.h = h;
+		input.l = other.l;
+		for (int i = 0; i < h; i++)
+			for (int j = 0; j < other.l; j++)
+			{
+				int save = 0;
+				for (int k = 0; k < l; k++)
+					save += (tab[i][k] * other.tab[k][j]);
+				input.tab[i][j] = save;
+			}
+		*this = input;
+		return *this;
+	}
+	Matrix &operator = (const Matrix &other)
+	{
+		h = other.h;
+		l = other.l;
+		for (int i = 0; i < h; i++)
+		{
+			for (int j = 0; j < l; j++)
+			{
+				tab[i][j] = other.tab[i][j];
+			}
+		}
+		return *this;
+	}
+	Matrix &operator * (const Matrix &other) const
+	{
+		return (Matrix)*this *= other;
+	}
+	Matrix operator + (const Matrix &other) const
+	{
+		return (Matrix)*this += other;
+	}
+	Matrix operator - (const Matrix &other) const
+	{
+		return (Matrix)*this -= other;
+	}
+private:
+	
 };
-void Matrix_Add(Matrix &add, const Matrix &other)
-{
-	for (int i = 0; i < add.h; i++)
-		for (int j = 0; j < add.l; j++)
-			add.tab[i][j] += other.tab[i][j];
-	return;
-}
-void Matrix_Mius(Matrix &mius, const Matrix &other)
-{
-	for (int i = 0; i < mius.h; i++)
-		for (int j = 0; j < mius.l; j++)
-			mius.tab[i][j] -= other.tab[i][j];
-	return;
-}
 void Matrix_Mult(const Matrix &left, const Matrix &right, Matrix &input)
 {
 	for (int i = 0; i < left.h; i++)
