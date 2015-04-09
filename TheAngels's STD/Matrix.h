@@ -2,11 +2,14 @@
 class Matrix
 {
 public:
-	int tab[MAX_Mat][MAX_Mat];
-	int h, l;
 	Matrix() :h(), l(){}
 	Matrix(int __h, int __l)
 		:h(__h), l(__l){}
+public:
+	int &at(int x, int y)
+	{
+		return tab[x][y];
+	}
 public:
 	Matrix &operator += (const Matrix &other)
 	{
@@ -64,8 +67,10 @@ public:
 		return (Matrix)*this -= other;
 	}
 private:
-	
+	int tab[MAX_Mat][MAX_Mat];
+	int h, l;
 };
+/*
 void Matrix_Mult(const Matrix &left, const Matrix &right, Matrix &input)
 {
 	for (int i = 0; i < left.h; i++)
@@ -78,6 +83,7 @@ void Matrix_Mult(const Matrix &left, const Matrix &right, Matrix &input)
 		}
 	return;
 }
+
 void Matrix_Give(Matrix &input, const Matrix &other)
 {
 	input.h = other.h;
@@ -105,3 +111,4 @@ void Matrix_Fast_Pow(Matrix base,int num, Matrix &input, Matrix &tmp)
 	}
 	return;
 }
+*/
