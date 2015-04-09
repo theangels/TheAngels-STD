@@ -54,7 +54,7 @@ void Link_Delete(Link &p, const int ind)
 	p.len--;
 	return;
 }
-void Link_Traver(const Link &p)
+void Link_Traverse(const Link &p)
 {
 	LinkNode *now = p.head;
 	for (int i = 0; i < p.len; i++)
@@ -81,5 +81,48 @@ void Link_Destory(Link &p)
 	p.head = NULL;
 	p.tail = NULL;
 	p.len = 0;
+	return;
+}
+void Link_GetElem(const Link &p, int ind, ElemType &e)
+{
+	LinkNode *now = p.head;
+	for (int i = 0; i < ind; i++)
+		now = now->next;
+	e = now->val;
+}
+void Link_PriorElem(const Link &p, const ElemType &cur_e, ElemType &pre_e)
+{
+	LinkNode *now = p.head;
+	while (now->val!=cur_e)
+		now = now->next;
+	pre_e = now->pre->val;
+	return;
+}
+void Link_NextElem(const Link &p, const ElemType &cur_e, ElemType &next_e)
+{
+	LinkNode *now = p.head;
+	while (now->val != cur_e)
+		now = now->next;
+	next_e = now->next->val;
+	return;
+}
+void Link_DeleteElem(Link &p, const ElemType &Min, const ElemType &Max)
+{
+	LinkNode *now = p.head;
+	int ind;
+	for (now = p.head->next,ind=1; now != NULL; now,ind)
+	{
+		if (now->val >= Min&&now->val <= Max)
+		{
+			now = now->pre;
+			Link_Delete(p, ind);
+			ind--;
+		}
+		else
+		{
+			ind++;
+			now = now->next;
+		}
+	}
 	return;
 }
