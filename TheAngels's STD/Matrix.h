@@ -71,28 +71,6 @@ private:
 	int h, l;
 };
 /*
-void Matrix_Mult(const Matrix &left, const Matrix &right, Matrix &input)
-{
-	for (int i = 0; i < left.h; i++)
-		for (int j = 0; j < right.l; j++)
-		{
-			int save = 0;
-			for (int k = 0; k < left.l; k++)
-				save += (left.tab[i][k] * right.tab[k][j]);
-			input.tab[i][j] = save;
-		}
-	return;
-}
-
-void Matrix_Give(Matrix &input, const Matrix &other)
-{
-	input.h = other.h;
-	input.l = other.l;
-	for (int i = 0; i < other.h; i++)
-		for (int j = 0; j < other.l; j++)
-			input.tab[i][j] = other.tab[i][j];
-	return;
-}
 void Matrix_Fast_Pow(Matrix base,int num, Matrix &input, Matrix &tmp)
 {
 	for (int i = 0; i < base.h; i++)
