@@ -54,6 +54,30 @@ public:
 		}
 		return *this;
 	}
+	Matrix &operator ^ (const Matrix &other)
+	{
+
+	}
+	/*
+	void Matrix_Fast_Pow(Matrix base,int num, Matrix &input, Matrix &tmp)
+	{
+	for (int i = 0; i < base.h; i++)
+	for (int j = 0; j < base.l; j++)
+	input.tab[i][j] = (i == j);
+	while (num)
+	{
+	if (num & 1)
+	{
+	Matrix_Mult(input, base, tmp);
+	Matrix_Give(input, tmp);
+	}
+	Matrix_Mult(base, base, tmp);
+	Matrix_Give(base, tmp);
+	num >>= 1;
+	}
+	return;
+	}
+	*/
 	Matrix &operator * (const Matrix &other) const
 	{
 		return (Matrix)*this *= other;
@@ -70,23 +94,3 @@ private:
 	int tab[MAX_Mat][MAX_Mat];
 	int h, l;
 };
-/*
-void Matrix_Fast_Pow(Matrix base,int num, Matrix &input, Matrix &tmp)
-{
-	for (int i = 0; i < base.h; i++)
-		for (int j = 0; j < base.l; j++)
-			input.tab[i][j] = (i == j);
-	while (num)
-	{
-		if (num & 1)
-		{
-			Matrix_Mult(input, base, tmp);
-			Matrix_Give(input, tmp);
-		}
-		Matrix_Mult(base, base, tmp);
-		Matrix_Give(base, tmp);
-		num >>= 1;
-	}
-	return;
-}
-*/
