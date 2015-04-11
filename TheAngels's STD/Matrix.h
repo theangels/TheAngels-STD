@@ -52,12 +52,10 @@ public:
 	}
 	Matrix &operator ^= (int num)
 	{
-		Matrix input;
-		input = *this;
+		Matrix input(h,h);
 		Matrix base = *this;
 		for (int i = 0; i < h; i++)
-			for (int j = 0; j < l; j++)
-				input.tab[i][j] = (i == j);
+			input.tab[i][i] = 1;
 		while (num)
 		{
 			if (num & 1)
@@ -72,19 +70,19 @@ public:
 	}
 	Matrix operator * (const Matrix &other) const
 	{
-		return (Matrix)*this *= other;
+		return Matrix(*this) *= other;
 	}
 	Matrix operator + (const Matrix &other) const
 	{
-		return (Matrix)*this += other;
+		return Matrix(*this) += other;
 	}
 	Matrix operator - (const Matrix &other) const
 	{
-		return (Matrix)*this -= other;
+		return Matrix(*this) -= other;
 	}
 	Matrix operator ^ (int num) const
 	{
-		return (Matrix)*this ^= num;
+		return Matrix(*this) ^= num;
 	}
 private:
 	int tab[MAX_Mat][MAX_Mat];
