@@ -21,7 +21,7 @@ public:
 	Matrix &operator -= (const Matrix &other)
 	{
 		for (int i = 0; i < h; i++)
-			for (int j = 0; j <l; j++)
+			for (int j = 0; j < l; j++)
 				tab[i][j] -= other.tab[i][j];
 		return *this;
 	}
@@ -46,39 +46,31 @@ public:
 		h = other.h;
 		l = other.l;
 		for (int i = 0; i < h; i++)
-		{
 			for (int j = 0; j < l; j++)
-			{
 				tab[i][j] = other.tab[i][j];
-			}
-		}
 		return *this;
 	}
-	Matrix &operator ^ (const Matrix &other)
+	Matrix &operator ^= (int num)
 	{
-
+		Matrix input;
+		input = *this;
+		Matrix base = *this;
+		for (int i = 0; i < h; i++)
+			for (int j = 0; j < l; j++)
+				input.tab[i][j] = (i == j);
+		while (num)
+		{
+			if (num & 1)
+			{
+				input *= base;
+			}
+			base *= base;
+			num >>= 1;
+		}
+		*this = input;
+		return *this;
 	}
-	/*
-	void Matrix_Fast_Pow(Matrix base,int num, Matrix &input, Matrix &tmp)
-	{
-	for (int i = 0; i < base.h; i++)
-	for (int j = 0; j < base.l; j++)
-	input.tab[i][j] = (i == j);
-	while (num)
-	{
-	if (num & 1)
-	{
-	Matrix_Mult(input, base, tmp);
-	Matrix_Give(input, tmp);
-	}
-	Matrix_Mult(base, base, tmp);
-	Matrix_Give(base, tmp);
-	num >>= 1;
-	}
-	return;
-	}
-	*/
-	Matrix &operator * (const Matrix &other) const
+	Matrix operator * (const Matrix &other) const
 	{
 		return (Matrix)*this *= other;
 	}
@@ -89,6 +81,10 @@ public:
 	Matrix operator - (const Matrix &other) const
 	{
 		return (Matrix)*this -= other;
+	}
+	Matrix operator ^ (int num) const
+	{
+		return (Matrix)*this ^= num;
 	}
 private:
 	int tab[MAX_Mat][MAX_Mat];
