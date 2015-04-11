@@ -39,4 +39,3 @@ int Get_uInt()
 	}
 	return ret;
 }
-
