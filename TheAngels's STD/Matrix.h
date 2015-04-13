@@ -53,6 +53,7 @@ public:
 	Matrix &operator ^= (int num)
 	{
 		Matrix input(h,h);
+		memset(input.tab, 0, sizeof(input.tab));
 		Matrix base = *this;
 		for (int i = 0; i < h; i++)
 			input.tab[i][i] = 1;
