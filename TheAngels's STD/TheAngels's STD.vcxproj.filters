@@ -21,10 +21,10 @@
     <ClInclude Include="..\TheAngels%27s STD\TheAngels%27s STD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TheAngels%27s STD\SeQList.h">
+    <ClInclude Include="..\TheAngels%27s STD\LinkList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TheAngels%27s STD\LinkList.h">
+    <ClInclude Include="..\..\TheAngels%27 STD\TheAngels%27s STD\SeqList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

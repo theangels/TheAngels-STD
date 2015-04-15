@@ -1,128 +1,64 @@
-struct LinkNode
+struct Node
 {
 	ElemType val;
-	LinkNode *pre, *next;
-	LinkNode() :val(), pre(), next(){}
-	LinkNode(ElemType __val, LinkNode *__pre = NULL, LinkNode *__next = NULL)
-		:val(__val), pre(__pre), next(__next){}
+	Node *next;
+	Node() :val(), next(){}
+	Node(ElemType __val, Node* __next = NULL)
+		:val(__val), next(__next){}
 };
-struct Link
+class LinkList
 {
-	LinkNode *head;
-	LinkNode *tail;
-	int len;	
-};
-void Link_Ini(Link &p)
-{
-	LinkNode *start = new LinkNode();
-	p.head = p.tail = start;
-	p.len = 0;
-	return;
-}
-void Link_Add(Link &p, const ElemType &add)
-{
-	LinkNode *tmp = new LinkNode(add);
-	tmp->next = NULL;
-	tmp->pre = p.tail;
-	p.tail->next = tmp;
-	p.tail = tmp;
-	p.len++;
-	return;
-}
-void Link_Insert(Link &p, const ElemType &insert, const int ind)
-{
-	LinkNode *now = p.head;
-	for (int i = 0; i < ind; i++)
-		now = now->next;
-	LinkNode *tmp = new LinkNode(insert);
-	tmp->next = now->next;
-	now->next->pre = tmp;
-	now->next = tmp;
-	tmp->pre = now;
-	p.len++;
-	return;
-}
-void Link_Delete(Link &p, const int ind)
-{
-	LinkNode *now = p.head;
-	for (int i = 0; i < ind; i++)
-		now = now->next;
-	LinkNode *del = now;
-	del->pre->next = now->next;
-	del->next->pre = del->pre;
-	delete(del);
-	p.len--;
-	return;
-}
-void Link_Traverse(const Link &p)
-{
-	LinkNode *now = p.head;
-	for (int i = 0; i < p.len; i++)
+public:
+	LinkList() : head(), tail(), len()
 	{
-		now = now->next;
-		cout << now->val;
-		if (i == p.len - 1)
-			cout << endl;
-		else
-			cout << " ";
+		Node *tmp = new Node;
+		len = 0;
+		tmp->val = -1;
+		head = tail = tmp;
 	}
-	return;
-}
-void Link_Destory(Link &p)
-{
-	LinkNode *now = p.head;
-	LinkNode *des;
-	for (int i = 0; i < p.len; i++)
+public:
+	void push_back(ElemType add)
 	{
-		des = now;
-		now = now->next;
-		delete(des);
+		Node *tmp = new Node(add);
+		tail->next = tmp;
+		tail = tmp;
+		len++;
 	}
-	p.head = NULL;
-	p.tail = NULL;
-	p.len = 0;
-	return;
-}
-void Link_GetElem(const Link &p, int ind, ElemType &e)
-{
-	LinkNode *now = p.head;
-	for (int i = 0; i < ind; i++)
-		now = now->next;
-	e = now->val;
-}
-void Link_PriorElem(const Link &p, const ElemType &cur_e, ElemType &pre_e)
-{
-	LinkNode *now = p.head;
-	while (now->val!=cur_e)
-		now = now->next;
-	pre_e = now->pre->val;
-	return;
-}
-void Link_NextElem(const Link &p, const ElemType &cur_e, ElemType &next_e)
-{
-	LinkNode *now = p.head;
-	while (now->val != cur_e)
-		now = now->next;
-	next_e = now->next->val;
-	return;
-}
-void Link_DeleteElem(Link &p, const ElemType &Min, const ElemType &Max)
-{
-	LinkNode *now = p.head;
-	int ind;
-	for (now = p.head->next,ind=1; now != NULL; now,ind)
+public:
+	void travel()
 	{
-		if (now->val >= Min&&now->val <= Max)
+		for (Node *p = head->next; p; p = p->next)
 		{
-			now = now->pre;
-			Link_Delete(p, ind);
-			ind--;
-		}
-		else
-		{
-			ind++;
-			now = now->next;
+			cout << p->val;
+			if (p->next)
+				cout << " ";
+			else
+				cout << endl;
 		}
 	}
-	return;
-}
+public:
+	void erase(int ind)
+	{
+		Node *p=head;
+		int i=1;
+		while (p&&i < ind)
+		{
+			p = p->next;
+			i++;
+		}
+		Node *del;
+		del = p->next;
+		p->next = del->next;
+		delete(del);
+		len--;
+	}
+public:
+	int size()
+	{
+		return len;
+	}
+private:
+	Node *head;
+	Node *tail;
+	int len;
+};

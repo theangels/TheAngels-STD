@@ -1,20 +1,24 @@
 #include "TheAngels's STD.h"
-#include "SeQList.h"
+#include "SeqList.h"
 #include "Matrix.h"
 #include "LinkList.h"
 int main(void)
 {
-	Matrix test(2,2);
-	test.at(0, 0) = 1;
-	test.at(0, 1) = 1;
-	test.at(1, 0) = 1;
-	test.at(1, 1) = 0;
-	Matrix ans(2,2);
-	ans = test;
-	for (int i = 1; i <= 15; i++)
-	{
-		ans = test ^ i;
-		cout << ans.at(0, 0) << endl;
-	}
+	LinkList tst;
+	cout << "Please input the data, when meet '-1' stop" << endl;
+	ElemType tmp;
+	while ((cin >> tmp) && tmp != -1)
+		tst.push_back(tmp);
+	cout << "The LinkList's length is " << tst.size() << endl;
+	cout << "The LinkList is :" << endl;
+	tst.travel();
+	int ind;
+	cout << "Please input the delete index" << endl;
+	cin >> ind;
+	tst.erase(ind);
+	tst.travel();
+	cout << "The LinkList's length is " << tst.size() << endl;
+	cout << "The LinkList is :" << endl;
+	tst.travel();
 	return 0;
 }
