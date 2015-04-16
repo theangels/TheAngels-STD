@@ -58,7 +58,7 @@ public:
 	{
 		Node *p = head->next;
 		int i = 1;
-		while (p!=head&&i < ind)
+		while (p&&i < ind)
 		{
 			p = p->next;
 			i++;
