@@ -2,9 +2,15 @@
 class Matrix
 {
 public:
-	Matrix() :h(), l(){}
+	Matrix() :h(), l()
+	{
+		memset(tab, 0, sizeof(tab));
+	}
 	Matrix(int __h, int __l)
-		:h(__h), l(__l){}
+		:h(__h), l(__l)
+	{
+		memset(tab, 0, sizeof(tab));
+	}
 public:
 	int &at(int x, int y)
 	{
@@ -53,7 +59,6 @@ public:
 	Matrix &operator ^= (int num)
 	{
 		Matrix input(h,h);
-		memset(input.tab, 0, sizeof(input.tab));
 		Matrix base = *this;
 		for (int i = 0; i < h; i++)
 			input.tab[i][i] = 1;

@@ -24,6 +24,7 @@ public:
 		tail->next = tmp;
 		tail = tmp;
 		len++;
+		return;
 	}
 public:
 	void travel()
@@ -36,6 +37,7 @@ public:
 			else
 				cout << endl;
 		}
+		return;
 	}
 public:
 	void erase(int ind)
@@ -52,6 +54,7 @@ public:
 		p->next = del->next;
 		delete(del);
 		len--;
+		return;
 	}
 public:
 	ElemType at(int ind)

@@ -1,74 +1,63 @@
-#define MAX_SQ 50
-typedef struct
+class SeqList
 {
-	ElemType * Elem;
-	int length;
-	int MaxSize;	
-}SqList;
-int SeQ_Time=2;
-void InitList(SqList &L)
-{
-	L.MaxSize = MAX_SQ;
-	L.Elem=(ElemType *)malloc(L.MaxSize*sizeof(ElemType));
-	L.length=0;
-	return;
-}
-void DestoryList(SqList &L)
-{
-	free(L.Elem);
-	return;
-}
-int ListLength(SqList L)
-{
-	return L.length;
-}
-void TraverselList(SqList L)
-{
-	for(int i = 0; i < L.length; i++)
+public:
+	SeqList(ElemType* __Elem, int __MaxSize, int __len = 0, int __time = 1) : Elem(__Elem), MaxSize(__MaxSize), len(__len), time(__time)
 	{
-		cout << L.Elem[i];
-		if(i==L.length-1)
-			cout << endl;
-		else
-			cout << " ";
+		Elem = (ElemType*)malloc(sizeof(ElemType)*time);
 	}
-	return;
-}
-void ListInsert(SqList &L, int ind, ElemType e)
-{
-	if(L.length==L.MaxSize)
+public:
+	int length()
 	{
-		L.Elem = (ElemType *)realloc(L.Elem, SeQ_Time*L.MaxSize*sizeof(ElemType));
-		SeQ_Time++;
+		return len;
 	}
-	for(int i = L.length-1; i >= ind-1; i--)
-		L.Elem[i+1]=L.Elem[i];
-	L.Elem[ind-1]=e;
-	L.length++;
-	return;
-}
-void ListDelete(SqList &L, int ind)
-{
-	for(int i = ind-1; i < L.length-1; i++)
-		L.Elem[i]=L.Elem[i+1];
-	L.length--;
-	
-}
-void GetElem(SqList L, int i , ElemType &e)
-{
-	e=L.Elem[i-1];
-	return;
-}
-void DeleteElem(SqList &L, ElemType SQMin, ElemType SQMax)
-{
-	for(int i = 0; i < L.length; i)
+public:
+	void travel()
 	{
-		if(L.Elem[i]>=SQMin&&L.Elem[i]<=SQMax)
+		for (int i = 0; i < len; i++)
 		{
-			ListDelete(L,i+1);
+			cout << Elem[i];
+			if (i == len - 1)
+				cout << endl;
+			else
+				cout << " ";
 		}
-		else
-			i++;
+		return;
 	}
-	return;
-}
+public:
+	void insert(ElemType e, int ind)
+	{
+		if (len == MaxSize*time)
+		{
+			Elem = (ElemType*)realloc(Elem, time*MaxSize*sizeof(ElemType));
+			time++;
+		}
+		for (int i = len - 1; i >= ind - 1; i--)
+			Elem[i + 1] = Elem[i];
+		Elem[ind - 1] = e;
+		len++;
+		return;
+	}
+public:
+	void erase(int ind)
+	{
+		for (int i = ind - 1; i < len - 1; i++)
+			Elem[i] = Elem[i + 1];
+		len--;
+		return;
+	}
+public:
+	ElemType at(int ind)
+	{
+		return Elem[ind - 1];
+	}
+public:
+	~SeqList()
+	{
+		free(Elem);
+	}
+private:
+	ElemType *Elem;
+	int len;
+	int MaxSize;
+	int time;
+};
