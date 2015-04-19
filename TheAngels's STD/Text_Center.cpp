@@ -4,21 +4,17 @@
 #include "LinkList.h"
 int main(void)
 {
-	LinkList tst;
-	int i = 1;
-	cout << "Please input the data, stop when meet '-1'"<< endl;
-	ElemType tmp;
-	while ((cin >> tmp) && tmp != -1)
-	tst.push_back(tmp);
-	cout << "The LinkList's length is " << tst.size() << endl;
-	cout << "The LinkList is :" << endl;
-	tst.travel();
+	SeqList test(100);
+	for (int i = 1; i <= 50; i++)
+		test.insert(i, i);
 	int ind;
-	cout << "Please input the requst index" << endl;
-	cin >> ind;
-	cout << tst.at(ind) << endl;
-	cout << "The LinkList's length is " << tst.size() << endl;
-	cout << "The LinkList is :" << endl;
-	tst.travel();
+	ElemType val;
+	cin >> val >> ind;
+	test.insert(val, ind);
+	test.travel();
+	int del;
+	cin >> del;
+	test.erase(del);
+	test.travel();
 	return 0;
 }

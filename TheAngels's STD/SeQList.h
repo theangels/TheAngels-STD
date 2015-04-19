@@ -1,9 +1,11 @@
 class SeqList
 {
 public:
-	SeqList(ElemType* __Elem, int __MaxSize, int __len = 0, int __time = 1) : Elem(__Elem), MaxSize(__MaxSize), len(__len), time(__time)
+	SeqList(int __MaxSize = 1) :MaxSize(__MaxSize)
 	{
-		Elem = (ElemType*)malloc(sizeof(ElemType)*time);
+		time = 1;
+		len = 0;
+		Elem = (ElemType*)malloc(sizeof(ElemType)*time*MaxSize);
 	}
 public:
 	int length()
@@ -54,6 +56,9 @@ public:
 	~SeqList()
 	{
 		free(Elem);
+		len = 0;
+		time = 1;
+		MaxSize = 1;
 	}
 private:
 	ElemType *Elem;
