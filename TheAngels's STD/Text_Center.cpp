@@ -7,6 +7,7 @@ int main(void)
 	SeqList test(100);
 	for (int i = 1; i <= 50; i++)
 		test.insert(i, i);
+	test.travel();
 	int ind;
 	ElemType val;
 	cin >> val >> ind;

@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\TheAngels%27 STD\TheAngels%27s STD\SeqList.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkList.h" />
     <ClInclude Include="..\TheAngels%27s STD\Matrix.h" />
+    <ClInclude Include="..\TheAngels%27s STD\SeqList.h" />
     <ClInclude Include="..\TheAngels%27s STD\TheAngels%27s STD.h" />
   </ItemGroup>
   <ItemGroup>
