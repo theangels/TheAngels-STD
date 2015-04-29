@@ -1,9 +1,9 @@
-struct Node
+struct LinkNode
 {
 	ElemType val;
-	Node *next;
-	Node() :val(), next(){}
-	Node(ElemType __val,Node* __next = NULL)
+	LinkNode *next;
+	LinkNode() :val(), next(){}
+	LinkNode(ElemType __val, LinkNode* __next = NULL)
 		:val(__val),  next(__next){}
 };
 class LinkList
@@ -11,7 +11,7 @@ class LinkList
 public:
 	LinkList() : head(), tail(), len()
 	{
-		Node *tmp = new Node;
+		LinkNode *tmp = new LinkNode;
 		len = 0;
 		tmp->val = -1;
 		head = tail = tmp;
@@ -20,7 +20,7 @@ public:
 public:
 	void push_back(ElemType add)
 	{
-		Node *tmp = new Node(add);
+		LinkNode *tmp = new LinkNode(add);
 		tail->next = tmp;
 		tail = tmp;
 		len++;
@@ -29,7 +29,7 @@ public:
 public:
 	void travel()
 	{
-		for (Node *p = head->next; p; p = p->next)
+		for (LinkNode *p = head->next; p; p = p->next)
 		{
 			cout << p->val;
 			if (p->next)
@@ -42,14 +42,14 @@ public:
 public:
 	void erase(int ind)
 	{
-		Node *p=head;
+		LinkNode *p = head;
 		int i=1;
 		while (p&&i < ind)
 		{
 			p = p->next;
 			i++;
 		}
-		Node *del;
+		LinkNode *del;
 		del = p->next;
 		p->next = del->next;
 		delete(del);
@@ -59,7 +59,7 @@ public:
 public:
 	ElemType at(int ind)
 	{
-		Node *p = head->next;
+		LinkNode *p = head->next;
 		int i = 1;
 		while (p&&i < ind)
 		{
@@ -76,8 +76,8 @@ public:
 public:
 	~LinkList()
 	{
-		Node *p;
-		Node *del;
+		LinkNode *p;
+		LinkNode *del;
 		del = head;
 		p = head->next;
 		while (p)
@@ -89,7 +89,7 @@ public:
 		delete(p);
 	}
 private:
-	Node *head;
-	Node *tail;
+	LinkNode *head;
+	LinkNode *tail;
 	int len;
 };

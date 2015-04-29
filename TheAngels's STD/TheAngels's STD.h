@@ -8,7 +8,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <string.h>
+#include <cstring>
+#include <string>
 #include <limits.h>
 //@ Input / Output
 #include <iostream>

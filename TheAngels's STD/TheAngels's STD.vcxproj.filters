@@ -27,6 +27,9 @@
     <ClInclude Include="..\TheAngels%27s STD\SeqList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\TheAngels%27 STD\TheAngels%27s STD\SeqStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TheAngels%27s STD\Text_Center.cpp">
