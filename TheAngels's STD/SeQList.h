@@ -33,16 +33,16 @@ public:
 			Elem = (ElemType*)realloc(Elem, time*MaxSize*sizeof(ElemType));
 			time++;
 		}
-		for (int i = len - 1; i >= ind - 1; i--)
+		for (int i = len - 1; i >= ind; i--)
 			Elem[i + 1] = Elem[i];
-		Elem[ind - 1] = e;
+		Elem[ind] = e;
 		len++;
 		return;
 	}
 public:
 	void erase(int ind)
 	{
-		for (int i = ind - 1; i < len - 1; i++)
+		for (int i = ind; i < len - 1; i++)
 			Elem[i] = Elem[i + 1];
 		len--;
 		return;
@@ -50,7 +50,7 @@ public:
 public:
 	ElemType at(int ind)
 	{
-		return Elem[ind - 1];
+		return Elem[ind];
 	}
 public:
 	~SeqList()
