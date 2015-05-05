@@ -6,12 +6,35 @@
 #include "SeqQueue.h"
 int main(void)
 {
-	SeqList test(50);
-	for (int i = 0; i < 10; i++)
+	bool check = true;
+	SeqQueue tst(1000 - 7);
+	while (check)
 	{
-		int tmp = Get_Int();
-		test.insert(tmp , i);
+		cout << "Queue: 1" << endl;
+		cout << "Medical: 2" << endl;
+		cout << "Review: 3" << endl;
+		cout << "Exit: 4" << endl;
+		int flag;
+		cin >> flag;
+		switch (flag)
+		{
+		case 1:
+			int add;
+			cin >> add;
+			tst.push(add);
+			break;
+		case 2:
+			tst.pop();
+			break;
+		case 3:
+			tst.travel();
+			break;
+		case 4:
+			check = false;
+			break;
+		default:
+			cout << "Error" << endl;
+		}
 	}
-	test.travel();
 	return 0;
 }

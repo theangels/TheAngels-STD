@@ -18,7 +18,7 @@ public:
 public:
 	void pop()
 	{
-		if ((top + 1) % len == tail) return;
+		if (top==tail) return;
 		top = (top + 1) % len;
 	}
 public:
@@ -34,6 +34,11 @@ public:
 				cout << " ";
 			p = (p + 1) % len;
 		}
+	}
+public:
+	ElemType front()
+	{
+		return que[top];
 	}
 public:
 	~SeqQueue()
