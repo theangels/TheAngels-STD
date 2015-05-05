@@ -3,6 +3,7 @@
 #include "Matrix.h"
 #include "SeqList.h"
 #include "SeqStack.h"
+#include "SeqQueue.h"
 int main(void)
 {
 	SeqList test(50);
