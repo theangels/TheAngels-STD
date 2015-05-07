@@ -23,7 +23,7 @@
 #include <queue>
 #include <stack>
 #include <vector>
-typedef int ElemType;
+#define ElemType string
 using namespace std;
 //@ Fast Input
 int Get_Int()

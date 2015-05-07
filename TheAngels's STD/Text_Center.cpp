@@ -7,7 +7,7 @@
 int main(void)
 {
 	bool check = true;
-	SeqQueue tst(1000 - 7);
+	SeqQueue tst(1000-7);
 	while (check)
 	{
 		cout << "Queue: 1" << endl;
@@ -15,11 +15,11 @@ int main(void)
 		cout << "Review: 3" << endl;
 		cout << "Exit: 4" << endl;
 		int flag;
+		ElemType add;
 		cin >> flag;
 		switch (flag)
 		{
 		case 1:
-			int add;
 			cin >> add;
 			tst.push(add);
 			break;
