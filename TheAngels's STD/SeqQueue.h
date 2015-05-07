@@ -41,6 +41,11 @@ public:
 		return que[top];
 	}
 public:
+	bool empty()
+	{
+		return top == tail;
+	}
+public:
 	~SeqQueue()
 	{
 		delete[]que;
