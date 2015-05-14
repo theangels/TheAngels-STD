@@ -16,6 +16,13 @@ public:
 		outfile.close();//关闭流
 	}
 public:
+	void read()
+	{
+		ifstream infile("stud.dat", ios::binary);//下面是 从 文件中读数据出来。
+		infile.read((char *)&name, strlen(name));
+		
+	}
+public:
 	char* get()
 	{
 		return name;
