@@ -1,8 +1,7 @@
-#define MAX_Sta 100000
 class SeqStack
 {
 public:
-	SeqStack() :__st()
+	SeqStack(int _MAX_Sta) :MAX_Sta(_MAX_Sta)
 	{
 		__st = new ElemType[MAX_Sta];
 		__top = __st;
@@ -47,4 +46,5 @@ public:
 private:
 	ElemType *__st;
 	ElemType *__top;
+	int MAX_Sta;
 };

@@ -23,7 +23,16 @@
 #include <queue>
 #include <stack>
 #include <vector>
-#define ElemType int
+struct LQNode
+{
+	int _num;
+	int _time;
+	LQNode *next;
+	LQNode() :_num(), _time(){}
+	LQNode(int __num, int __time, LQNode *next = NULL) :
+		_num(__num), _time(__time){}
+};
+#define ElemType LQNode
 using namespace std;
 //@ Fast Input
 int Get_Int()

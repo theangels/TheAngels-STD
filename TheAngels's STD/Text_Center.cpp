@@ -1,40 +1,50 @@
-#include <fstream>
 #include "TheAngels's STD.h"
-using namespace std;
-class student
+#include "SeqStack.h"
+#include "LinkQueue.h"
+int main(void)
 {
-public:
-	void output()
+	char operate;
+	int num, time;
+	int full;
+	cin >> full;
+	SeqStack stop(full);
+	LinkQueue passageway;
+	while (cin >> operate >> num >> time)
 	{
-		ofstream outfile("stud.txt", ios::binary);
-		if (!outfile)
+		if (operate == 'A')
 		{
-			cout << "open error!" << endl;
-			return;
+			if (stop.length() == full)
+				passageway.push(num, time);
+			else
+			{
+				ElemType add;
+				add._num = num;
+				add._time = time;
+				stop.push(add);
+			}
 		}
-		outfile.write((char *)&name, strlen(name));//写数据到文件中
-		outfile.close();//关闭流
+		else
+		{
+			SeqStack tmp(full);
+			while (stop.top()._num != num)
+			{
+				tmp.push(stop.top());
+				stop.pop();
+			}
+			printf("%d\n", time - stop.top()._time);
+			stop.pop();
+			while (!tmp.empty())
+			{
+				stop.push(tmp.top());
+				tmp.pop();
+			}
+			if (!passageway.empty())
+			{
+				ElemType add;
+				add._num = passageway.top()._num;
+				add._time = time;
+				stop.push(add);
+			}
+		}
 	}
-public:
-	void read()
-	{
-		ifstream infile("stud.dat", ios::binary);//下面是 从 文件中读数据出来。
-		infile.read((char *)&name, strlen(name));
-		
-	}
-public:
-	char* get()
-	{
-		return name;
-	}
-private:
-	char name[1000-7];
-};
-
-int main()
-{
-	student tst;
-	cin >> tst.get();
-	tst.output();
-	return 0;
 }
