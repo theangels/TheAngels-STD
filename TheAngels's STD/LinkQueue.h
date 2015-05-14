@@ -24,11 +24,12 @@ public:
 		return _head == _tail;
 	}
 public:
-	ElemType top()
+	ElemType& top()
 	{
 		return *(_head->next);
 	}
 public:
+	/**/
 	~LinkQueue()
 	{
 		ElemType *p;
@@ -38,7 +39,7 @@ public:
 			ElemType *del;
 			del = p;
 			p = p->next;
-			delete(del);
+			delete del;
 		}
 	}
 private:
