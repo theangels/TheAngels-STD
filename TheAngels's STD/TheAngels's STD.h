@@ -24,6 +24,7 @@
 #include <stack>
 #include <vector>
 using namespace std;
+typedef long long LL;
 //@ Fast Input
 int Get_Int()
 {
