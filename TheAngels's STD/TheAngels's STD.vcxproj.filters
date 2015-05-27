@@ -36,7 +36,7 @@
     <ClInclude Include="..\TheAngels%27s STD\LinkQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TheAngels%27s STD\binary_tree.h">
+    <ClInclude Include="..\TheAngels%27s STD\Binary_tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
