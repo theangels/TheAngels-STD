@@ -8,5 +8,8 @@
 #include "binary_tree.h"
 int main(void)
 {
-
+	char arr[1000 - 7];
+	cin >> arr;
+	Binary_tree<char> tst(arr);
+	cout << tst.BiTreeDepth() << endl;
 }

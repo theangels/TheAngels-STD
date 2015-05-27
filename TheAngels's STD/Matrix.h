@@ -90,6 +90,6 @@ public:
 		return Matrix(*this) ^= num;
 	}
 private:
-	int tab[MAX_Mat][MAX_Mat];
+	int tab[MAX_SIZE][MAX_SIZE];
 	int h, l;
 };
