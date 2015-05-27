@@ -15,5 +15,8 @@ int main(void)
 	tst.InOrderTraverse();
 	tst.PostOrderTraverse();
 	tst.LevelOrderTraverse();
+	char x;
+	cin >> x;
+	cout << tst.Parent(x)->data << ":" << tst.Parent(x) << endl;
 	return 0;
 }

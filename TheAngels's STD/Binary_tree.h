@@ -53,6 +53,13 @@ public:
 		cout << endl;
 	}
 public:
+	Node<ElemType> *Parent(ElemType x)
+	{
+		ret = NULL;
+		find(root, x);
+		return ret;
+	}
+public:
 	bool BiTreeEmpty()
 	{
 		if (root)
@@ -71,6 +78,18 @@ public:
 	{
 		Del(root);
 		root = NULL;
+	}
+private:
+	void find(Node<ElemType> *now,ElemType x)
+	{
+		if (!now) return;
+		if (now->lc && now->lc->data == x || now->rc && now->rc->data == x)
+		{
+			ret = now;
+			return;
+		}
+		find(now->lc,x);
+		find(now->rc,x);
 	}
 private:
 	void prt(Node<ElemType> *now)
@@ -143,6 +162,7 @@ private:
 private:
 	Node<ElemType>* root;
 	ElemType arr[MAX_SIZE];
+	Node<ElemType> *ret;
 	int id;
 	int deep;
 };
