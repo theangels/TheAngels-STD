@@ -11,5 +11,9 @@ int main(void)
 	char arr[1000 - 7];
 	cin >> arr;
 	Binary_tree<char> tst(arr);
-	cout << tst.BiTreeDepth() << endl;
+	tst.PreOrderTraverse();
+	tst.InOrderTraverse();
+	tst.PostOrderTraverse();
+	tst.LevelOrderTraverse();
+	return 0;
 }

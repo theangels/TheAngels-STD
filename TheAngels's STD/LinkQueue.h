@@ -4,13 +4,13 @@ class LinkQueue
 public:
 	LinkQueue() :_head(), _tail()
 	{
-		_head = new ElemType;
+		_head = new Node;
 		_tail=_head;
 	}
 public:
-	void push(int _num, int _time)
+	void push(ElemType &add)
 	{
-		ElemType* tmp = new ElemType(_num, _time);
+		Node* tmp = new Node(add);
 		_tail->next = tmp;
 		_tail = tmp;
 	}
@@ -27,22 +27,29 @@ public:
 public:
 	ElemType& top()
 	{
-		return *(_head->next);
+		return (_head->next)->data;
 	}
 public:
 	~LinkQueue()
 	{
-		ElemType *p;
+		Node *p;
 		p = _head;
 		while (p)
 		{
-			ElemType *del;
+			Node *del;
 			del = p;
 			p = p->next;
 			delete del;
 		}
 	}
 private:
-	ElemType* _head;
-	ElemType* _tail;
+	struct Node
+	{
+		ElemType data;
+		Node *next;
+		Node() :data(), next(){}
+		Node(ElemType __data, Node *__next = NULL) :data(__data), next(__next){}
+	};
+	Node* _head;
+	Node* _tail;
 };

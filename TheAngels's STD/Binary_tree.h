@@ -18,6 +18,41 @@ public:
 		build(root);
 	}
 public:
+	void PreOrderTraverse()
+	{
+		prt(root);
+		cout << endl;
+	}
+public:
+	void InOrderTraverse()
+	{
+		it(root);
+		cout << endl;
+	}
+public:
+	void PostOrderTraverse()
+	{
+		pot(root);
+		cout << endl;
+	}
+public:
+	void LevelOrderTraverse()
+	{
+		LinkQueue<Node<ElemType> *> que;
+		que.push(root);
+		while (!que.empty())
+		{
+			Node<ElemType> *now = que.top();
+			que.pop();
+			cout << now->data;
+			if (now->lc)
+				que.push(now->lc);
+			if (now->rc)
+				que.push(now->rc);
+		}
+		cout << endl;
+	}
+public:
 	bool BiTreeEmpty()
 	{
 		if (root)
@@ -30,6 +65,44 @@ public:
 		deep = 0;
 		finddeep(root, 1);
 		return deep;
+	}
+public:
+	~Binary_tree()
+	{
+		Del(root);
+		root = NULL;
+	}
+private:
+	void prt(Node<ElemType> *now)
+	{
+		if (!now) return;
+		cout << now->data;
+		prt(now->lc);
+		prt(now->rc);
+	}
+private:
+	void it(Node<ElemType> *now)
+	{
+		if (!now) return;
+		it(now->lc);
+		cout << now->data;
+		it(now->rc);
+	}
+private:
+	void pot(Node<ElemType> *now)
+	{
+		if (!now) return;
+		pot(now->lc);
+		pot(now->rc);
+		cout << now->data;
+	}
+private:
+	void Del(Node<ElemType> *now)
+	{
+		if (!now) return;
+		Del(now->lc);
+		Del(now->rc);
+		delete(now);
 	}
 private:
 	void finddeep(Node<ElemType> *now,int num)
