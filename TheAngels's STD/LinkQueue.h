@@ -1,3 +1,4 @@
+template <typename ElemType>
 class LinkQueue
 {
 public:
@@ -29,7 +30,6 @@ public:
 		return *(_head->next);
 	}
 public:
-	/**/
 	~LinkQueue()
 	{
 		ElemType *p;

@@ -1,4 +1,3 @@
-#define MAX_Mat 100
 class Matrix
 {
 public:

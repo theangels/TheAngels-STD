@@ -1,11 +1,4 @@
-struct LinkNode
-{
-	ElemType val;
-	LinkNode *next;
-	LinkNode() :val(), next(){}
-	LinkNode(ElemType __val, LinkNode* __next = NULL)
-		:val(__val),  next(__next){}
-};
+template <typename ElemType>
 class LinkList
 {
 public:
@@ -89,6 +82,14 @@ public:
 		delete(p);
 	}
 private:
+	struct LinkNode
+	{
+		ElemType val;
+		LinkNode *next;
+		LinkNode() :val(), next(){}
+		LinkNode(ElemType __val, LinkNode* __next = NULL)
+			:val(__val), next(__next){}
+	};
 	LinkNode *head;
 	LinkNode *tail;
 	int len;

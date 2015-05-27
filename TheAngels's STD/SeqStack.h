@@ -1,3 +1,4 @@
+template <typename ElemType>
 class SeqStack
 {
 public:
