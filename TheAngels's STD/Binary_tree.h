@@ -9,6 +9,26 @@ template <typename ElemType>
 class Binary_tree
 {
 public:
+	void PreOrderTraverseUn()
+	{
+		stack<Node<ElemType>*> tst;
+		Node<ElemType>* now;
+		now = root;
+		while (now||!tst.empty())
+		{
+			while (now)
+			{
+				tst.push(now);
+				cout << now->data;
+				now = now->lc;
+			}
+			now = tst.top();
+			tst.pop();
+			now = now->rc;
+		}
+		cout << endl;
+	}
+public:
 	Binary_tree(ElemType *add)
 	{
 		strcpy(arr, add);
