@@ -9,7 +9,7 @@ template <typename ElemType>
 class Binary_tree
 {
 public:
-	void PreOrderTraverseUn()
+	void PreOrderTraverse2()
 	{
 		stack<Node<ElemType>*> tst;
 		Node<ElemType>* now;
@@ -29,6 +29,23 @@ public:
 		cout << endl;
 	}
 public:
+	void ChangeBiTree()
+	{	
+		ch(root);
+	}
+public:
+	int CountLeafBiTree()
+	{
+		return count(root);
+	}
+public:
+	void CopyBiTree(Binary_tree<ElemType> &T)
+	{
+		cp(root, T.getroot());
+	}
+private:
+	bool SimilarBiTrees()
+public:
 	Binary_tree(ElemType *add)
 	{
 		strcpy(arr, add);
@@ -36,6 +53,10 @@ public:
 		root->data = arr[0];
 		id = 1;
 		build(root);
+	}
+	Binary_tree()
+	{
+		root = new Node<ElemType>;
 	}
 public:
 	void PreOrderTraverse()
@@ -98,6 +119,49 @@ public:
 	{
 		Del(root);
 		root = NULL;
+	}
+private:
+	void cp(Node<ElemType> *pre, Node<ElemType> *cpy)
+	{
+		cpy->data = pre->data;
+		if (pre->lc)
+		{
+			Node<ElemType> *add = new Node < ElemType > ;
+			cpy->lc = add;
+			cp(pre->lc, cpy->lc);
+		}
+		if (pre->rc)
+		{
+			Node<ElemType> *add = new Node < ElemType >;
+			cpy->rc = add;
+			cp(pre->rc, cpy->rc);
+		}
+	}
+private:
+	Node<ElemType> *&getroot()
+	{
+		return root;
+	}
+private:
+	int count(Node<ElemType> *now)
+	{
+		if (!now)
+			return 0;
+		if (now->lc == NULL&&now->rc == NULL)
+			return 1;
+		return count(now->lc) + count(now->rc);
+	}
+private:
+	void ch(Node<ElemType> *now)
+	{
+		if (now)
+		{
+			Node<ElemType> *tmp = now->lc;
+			now->lc = now->rc;
+			now->rc = tmp;
+			ch(now->lc);
+			ch(now->rc);
+		}
 	}
 private:
 	void find(Node<ElemType> *now,ElemType x)
