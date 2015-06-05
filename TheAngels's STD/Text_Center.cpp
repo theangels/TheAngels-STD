@@ -3,17 +3,14 @@
 #include "LinkQueue.h"
 #include "LinkList.h"
 #include "Matrix.h"
-int cal(char tmp)
+int M, N;
+struct Node
 {
-	return tmp - 'A';
-}
+	double value;
+	double cost;
+	int num;
+};
 int main(void)
 {
-	char A[1000 - 7];
-	cin >> A;
-	Binary_tree<char> tst(A);
-	Binary_tree<char> tsts;
-	tst.CopyBiTree(tsts);
-	tsts.PreOrderTraverse2();
-	return 0;
+
 }

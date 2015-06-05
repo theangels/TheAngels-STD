@@ -1,18 +1,31 @@
 template <typename ElemType>
-struct Node
+struct TreeNode
 {
 	ElemType data;
-	Node *lc, *rc;
+	TreeNode *lc, *rc;
 	Node() : data(), lc(), rc(){}
 };
 template <typename ElemType>
 class Binary_tree
 {
 public:
+	Binary_tree(ElemType *add)
+	{
+		strcpy(arr, add);
+		root = new TreeNode<ElemType>;
+		root->data = arr[0];
+		id = 1;
+		build(root);
+	}
+	Binary_tree()
+	{
+		root = new TreeNode<ElemType>;
+	}
+public:
 	void PreOrderTraverse2()
 	{
-		stack<Node<ElemType>*> tst;
-		Node<ElemType>* now;
+		stack<TreeNode<ElemType>*> tst;
+		TreeNode<ElemType>* now;
 		now = root;
 		while (now||!tst.empty())
 		{
@@ -43,20 +56,17 @@ public:
 	{
 		cp(root, T.getroot());
 	}
-private:
-	bool SimilarBiTrees()
 public:
-	Binary_tree(ElemType *add)
+	bool SimilarBiTrees(Binary_tree<ElemType> &T)
 	{
-		strcpy(arr, add);
-		root = new Node<ElemType>;
-		root->data = arr[0];
-		id = 1;
-		build(root);
+		if (check(root, T.getroot()) == 0)
+			return true;
+		return false;
 	}
-	Binary_tree()
+public:
+	void RemoveLeaves()
 	{
-		root = new Node<ElemType>;
+		rl(root);
 	}
 public:
 	void PreOrderTraverse()
@@ -79,11 +89,11 @@ public:
 public:
 	void LevelOrderTraverse()
 	{
-		LinkQueue<Node<ElemType> *> que;
+		LinkQueue<TreeNode<ElemType> *> que;
 		que.push(root);
 		while (!que.empty())
 		{
-			Node<ElemType> *now = que.top();
+			TreeNode<ElemType> *now = que.top();
 			que.pop();
 			cout << now->data;
 			if (now->lc)
@@ -94,7 +104,7 @@ public:
 		cout << endl;
 	}
 public:
-	Node<ElemType> *Parent(ElemType x)
+	TreeNode<ElemType> *Parent(ElemType x)
 	{
 		ret = NULL;
 		find(root, x);
@@ -121,29 +131,61 @@ public:
 		root = NULL;
 	}
 private:
-	void cp(Node<ElemType> *pre, Node<ElemType> *cpy)
+	void rl(TreeNode<ElemType> *now)
+	{
+		if (now)
+		{
+			if (now->lc && !(now->lc->lc) && !(now->lc->rc))
+			{
+				TreeNode<ElemType> *del = now->lc;
+				now->lc = NULL;
+				delete del;
+			}
+			else
+				rl(now->lc);
+			if (now->rc && !(now->rc->lc) && !(now->rc->rc))
+			{
+				TreeNode<ElemType> *del = now->rc;
+				now->rc = NULL;
+				delete del;
+			}
+			else
+				rl(now->rc);
+		}
+	}
+private:
+	int check(TreeNode<ElemType> *a, TreeNode<ElemType> *b)
+	{
+		if (!a&&!b)
+			return 0;
+		if (!a || !b)
+			return 1;
+		return check(a->lc, b->lc)+check(a->rc, b->rc);
+	}
+private:
+	void cp(TreeNode<ElemType> *pre, TreeNode<ElemType> *cpy)
 	{
 		cpy->data = pre->data;
 		if (pre->lc)
 		{
-			Node<ElemType> *add = new Node < ElemType > ;
+			TreeNode<ElemType> *add = new TreeNode < ElemType >;
 			cpy->lc = add;
 			cp(pre->lc, cpy->lc);
 		}
 		if (pre->rc)
 		{
-			Node<ElemType> *add = new Node < ElemType >;
+			TreeNode<ElemType> *add = new TreeNode < ElemType >;
 			cpy->rc = add;
 			cp(pre->rc, cpy->rc);
 		}
 	}
 private:
-	Node<ElemType> *&getroot()
+	TreeNode<ElemType> *&getroot()
 	{
 		return root;
 	}
 private:
-	int count(Node<ElemType> *now)
+	int count(TreeNode<ElemType> *now)
 	{
 		if (!now)
 			return 0;
@@ -152,11 +194,11 @@ private:
 		return count(now->lc) + count(now->rc);
 	}
 private:
-	void ch(Node<ElemType> *now)
+	void ch(TreeNode<ElemType> *now)
 	{
 		if (now)
 		{
-			Node<ElemType> *tmp = now->lc;
+			TreeNode<ElemType> *tmp = now->lc;
 			now->lc = now->rc;
 			now->rc = tmp;
 			ch(now->lc);
@@ -164,7 +206,7 @@ private:
 		}
 	}
 private:
-	void find(Node<ElemType> *now,ElemType x)
+	void find(TreeNode<ElemType> *now, ElemType x)
 	{
 		if (!now) return;
 		if (now->lc && now->lc->data == x || now->rc && now->rc->data == x)
@@ -176,7 +218,7 @@ private:
 		find(now->rc,x);
 	}
 private:
-	void prt(Node<ElemType> *now)
+	void prt(TreeNode<ElemType> *now)
 	{
 		if (!now) return;
 		cout << now->data;
@@ -184,7 +226,7 @@ private:
 		prt(now->rc);
 	}
 private:
-	void it(Node<ElemType> *now)
+	void it(TreeNode<ElemType> *now)
 	{
 		if (!now) return;
 		it(now->lc);
@@ -192,7 +234,7 @@ private:
 		it(now->rc);
 	}
 private:
-	void pot(Node<ElemType> *now)
+	void pot(TreeNode<ElemType> *now)
 	{
 		if (!now) return;
 		pot(now->lc);
@@ -200,7 +242,7 @@ private:
 		cout << now->data;
 	}
 private:
-	void Del(Node<ElemType> *now)
+	void Del(TreeNode<ElemType> *now)
 	{
 		if (!now) return;
 		Del(now->lc);
@@ -208,7 +250,7 @@ private:
 		delete(now);
 	}
 private:
-	void finddeep(Node<ElemType> *now,int num)
+	void finddeep(TreeNode<ElemType> *now, int num)
 	{
 		if (!now)
 		{
@@ -219,12 +261,12 @@ private:
 		finddeep(now->rc, num + 1);
 	}
 private:
-	void build(Node<ElemType> *now)
+	void build(TreeNode<ElemType> *now)
 	{
 		if (arr[id] == '\0') return;
 		if (arr[id] != '#')
 		{
-			Node<ElemType> *lson = new Node < ElemType > ;
+			TreeNode<ElemType> *lson = new TreeNode < ElemType >;
 			lson->data = arr[id];
 			now->lc = lson;
 			id++;
@@ -234,7 +276,7 @@ private:
 			id++;
 		if (arr[id] != '#')
 		{
-			Node<ElemType>* rson = new Node < ElemType > ;
+			TreeNode<ElemType>* rson = new TreeNode < ElemType >;
 			rson->data = arr[id];
 			now->rc = rson;
 			id++;
@@ -244,9 +286,9 @@ private:
 			id++;
 	}
 private:
-	Node<ElemType>* root;
+	TreeNode<ElemType>* root;
+	TreeNode<ElemType> *ret;
 	ElemType arr[MAX_SIZE];
-	Node<ElemType> *ret;
 	int id;
 	int deep;
 };
