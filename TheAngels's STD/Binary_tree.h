@@ -3,7 +3,7 @@ struct TreeNode
 {
 	ElemType data;
 	TreeNode *lc, *rc;
-	Node() : data(), lc(), rc(){}
+	TreeNode() : data(), lc(), rc(){}
 };
 template <typename ElemType>
 class Binary_tree

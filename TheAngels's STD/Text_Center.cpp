@@ -3,14 +3,12 @@
 #include "LinkQueue.h"
 #include "LinkList.h"
 #include "Matrix.h"
-int M, N;
-struct Node
-{
-	double value;
-	double cost;
-	int num;
-};
 int main(void)
 {
+	int t;
+	scanf("%d", &t);
+	for (int _ = 0; _ < t; _++)
+	{
 
+	}
 }
