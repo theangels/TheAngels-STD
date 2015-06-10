@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\TheAngels%27s STD\AdjMatrix.h" />
     <ClInclude Include="..\TheAngels%27s STD\Binary_tree.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkList.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkQueue.h" />
