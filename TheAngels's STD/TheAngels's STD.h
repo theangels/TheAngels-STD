@@ -24,7 +24,7 @@
 #include <stack>
 #include <vector>
 using namespace std;
-#define MAX_SIZE 1000-7
+#define MAX_SIZE 100+5
 typedef long long LL;
 
 //@ Fast Input

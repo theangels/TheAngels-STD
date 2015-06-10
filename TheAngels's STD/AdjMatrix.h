@@ -2,7 +2,7 @@ template<typename VerTexType>
 class AdjMatrix
 {
 public:
-	AdjMatrix(int MAX_POINT = 0) :MAX_POINT(MAX_POINT)
+	AdjMatrix(int num = 0) :MAX_POINT(num)
 	{
 		len = 0;
 		memset(point, 0, sizeof(point));
@@ -21,7 +21,7 @@ public:
 		int remove = find(del);
 		if (remove == -1) return;
 		for (int i = 0; i < MAX_POINT; i++)
-			matrix[remove][i] = 0;
+			matrix[remove][i] = matrix[i][remove] = 0;
 	}
 public:
 	void InsertArc(VerTexType a, VerTexType b)
@@ -43,7 +43,7 @@ public:
 	void PrintGraph()
 	{
 		for (int i = 0; i < MAX_POINT; i++)
-			for (int j = 0; i < MAX_POINT; j++)
+			for (int j = 0; j < MAX_POINT; j++)
 			{
 				cout << matrix[i][j];
 				if (j == MAX_POINT - 1)
