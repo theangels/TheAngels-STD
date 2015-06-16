@@ -52,6 +52,19 @@ public:
 					cout << " ";
 			}
 	}
+public:
+	int VexDegree(VerTexType check)
+	{
+		int id = find(check);
+		if (id == -1) return -1;
+		int sum = 0;
+		for (int i = 0; i < MAX_POINT; i++)
+		{
+			sum += matrix[i][id];
+			sum += matrix[id][i];
+		}
+		return sum;
+	}
 private:
 	int find(VerTexType f)
 	{
