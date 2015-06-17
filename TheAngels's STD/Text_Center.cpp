@@ -4,8 +4,7 @@
 #include "LinkList.h"
 #include "Matrix.h"
 #include "AdjMatrix.h"
-string tab;
-string check;
+#include "AdjLink.h"
 int main(void)
 {
 	
