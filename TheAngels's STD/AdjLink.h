@@ -15,7 +15,16 @@ public:
 public:
 	~AdjLink()
 	{
-
+		for (int i = 0; i < size; i++)
+		{
+			Node *p = link[i];
+			while(p)
+			{
+				Node *tmp = p->next;
+				delete(p);
+				p = tmp;
+			}
+		}
 	}
 public:
 	void Addpoint(VerTexType x)
