@@ -74,6 +74,21 @@ public:
 					cout << endl;
 			}
 	}
+public:
+	void dfs(VerTexType now)
+	{
+		int st = find(now);
+		if (st == -1)return;
+		for (Node *p = link[st]; p; p = p->next)
+		{
+			if (!use[p->id])
+			{
+				use[p->id] = true;
+				cout << tab[p->id];
+				dfs(tab[p->id]);
+			}
+		}
+	}
 private:
 	void insert(int la, int lb, int val)
 	{
@@ -116,6 +131,7 @@ private:
 	VerTexType tab[MAX_SIZE];
 	Node *link[MAX_SIZE];
 	Node *tail[MAX_SIZE];
+	bool use[MAX_SIZE];
 	int point;
 	int size;
 };
