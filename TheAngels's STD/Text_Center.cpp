@@ -33,5 +33,6 @@ int main(void)
 	char ask;
 	cin >> ask;
 	cout << tst.VexDegree(ask) << endl;
-
+	tst.deep();
+	tst.breadth();
 }

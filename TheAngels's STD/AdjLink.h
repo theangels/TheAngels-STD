@@ -74,7 +74,37 @@ public:
 					cout << endl;
 			}
 	}
+public :
+	void deep()
+	{
+		memset(use, false, sizeof(use));
+		dfs(tab[0]);
+		cout << endl;
+	}
 public:
+	void breadth()
+	{
+		memset(use, false, sizeof(use));
+		use[0] = true;
+		queue<Node*> st;
+		st.push(link[0]);
+		while (!st.empty())
+		{
+			Node *now = st.front();
+			cout << tab[now->id];
+			st.pop();
+			for (Node *p = now->next; p; p = p->next)
+			{
+				if (!use[p->id])
+				{
+					use[p->id] = true;
+					st.push(link[p->id]);
+				}
+			}
+		}
+		cout << endl;
+	}
+private:
 	void dfs(VerTexType now)
 	{
 		int st = find(now);
