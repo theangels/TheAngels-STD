@@ -46,3 +46,13 @@ int Get_Int()
 	if (!mius) return ret;
 	else return -ret;
 }
+int ct(int x)
+{
+	int ret = 0;
+	while (x)
+	{
+		ret++;
+		x = x & (x - 1);
+	}
+	return ret;
+}
