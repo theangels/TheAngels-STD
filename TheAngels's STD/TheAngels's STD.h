@@ -46,7 +46,8 @@ int Get_Int()
 	if (!mius) return ret;
 	else return -ret;
 }
-int ct(int x)
+//@ Count the number of the '1'
+int Count_1(int x)
 {
 	int ret = 0;
 	while (x)
