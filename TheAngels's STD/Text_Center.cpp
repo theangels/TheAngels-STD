@@ -46,55 +46,7 @@ int Get_Int()
 	if (!mius) return ret;
 	else return -ret;
 }
-int n, m, mlen;
-int dp[100 + 5][70+5][70+5];//i j k 第i行状态为k 第i-1行状态为j
-int yes[70 + 5];
-int hill[100 + 5];
-char mv[100 + 5][10 + 5];
-inline bool check(int x)
-{
-	if ((x << 1) & x) return false;
-	if ((x << 2) & x) return false;
-	return true;
-}
-inline bool cs(int h, int x)
-{
-	if (hill[h] & x) return false;
-	return true;
-}
-int ct(int x)
-{
-	int ret = 0;
-	while (x)
-	{
-		ret++;
-		x = x & (x-1);
-	}
-	return ret;
-}
-void init()
-{
-	mlen = 0;
-	int len = (1 << m);
-	for (int i = 0; i < len; i++)
-	{
-		if (check(i))
-			yes[mlen++] = i;
-	}
-}
 int main(void)
 {
-	while (scanf("%d%d", &n, &m) != EOF)
-	{
-		for (int i = 0; i < n; i++)
-			scanf("%s", mv[i]);
-		memset(dp, -1, sizeof(dp));
-		init();
-		for (int i = 0; i < mlen; i++)
-		{
-			int st = yes[i];
-			if (cs(0, st))
-				dp[1][1][st]=
-		}
-	}
+	cout << "Hello World!" << endl;
 }
