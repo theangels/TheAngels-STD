@@ -15,9 +15,11 @@
     <ClInclude Include="..\TheAngels%27s STD\AdjMatrix.h" />
     <ClInclude Include="..\TheAngels%27s STD\Binary_tree.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkList.h" />
+    <ClInclude Include="..\TheAngels%27s STD\Linkpoly.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkQueue.h" />
     <ClInclude Include="..\TheAngels%27s STD\Matrix.h" />
     <ClInclude Include="..\TheAngels%27s STD\SeqList.h" />
+    <ClInclude Include="..\TheAngels%27s STD\Seqpoly.h" />
     <ClInclude Include="..\TheAngels%27s STD\SeqQueue.h" />
     <ClInclude Include="..\TheAngels%27s STD\SeqStack.h" />
     <ClInclude Include="..\TheAngels%27s STD\TheAngels%27s STD.h" />
