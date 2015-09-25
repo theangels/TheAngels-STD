@@ -14,10 +14,6 @@ int main(void) {
 	tst.Output();
 	double ans = tst.Cal(2);
 	printf("ans = %f\n", ans);
-	
-	
-	
-	
 	/*---------------------------------------------------*/
 	Seqpoly *tst1;
 	init(tst1);
