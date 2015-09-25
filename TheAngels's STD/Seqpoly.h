@@ -1,4 +1,3 @@
-
 struct Seqpoly_Node{
 	double coef;
 	int expn;

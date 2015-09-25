@@ -13,7 +13,7 @@ int main(void) {
 	tst.Delete(4);
 	tst.Output();
 	double ans = tst.Cal(2);
-	printf("ans = %f\n",ans);
+	printf("ans = %f\n", ans);
 	
 	
 	
