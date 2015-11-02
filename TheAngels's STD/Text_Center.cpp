@@ -4,7 +4,7 @@ typedef struct
 	int fromvex,endvex; 
 	int weight;   
  }edge;
-typedef edge edgeset[MaxEdgeNum];               
+typedef edge edgeset[MaxEdgeNum];             
 
 void Prim(AMGraph G, edgeset CT, VerTexType u){
 	int i,j,k,t,Min,m,w;
@@ -15,6 +15,7 @@ void Prim(AMGraph G, edgeset CT, VerTexType u){
 			CT[i].fromvex=k;
 			CT[i].endvex=j;
 			CT[i].weight=G.arcs[k][j];
+			i++;
 		}
 	}
 	for(k = 1; k < G.vexnum; k++){
@@ -48,17 +49,42 @@ void PrintEdge(edgeset CT, int n){
 			cout << endl;
 		}
 		else{
-			cout << " ";
+			cout << "\t";
+		}
+	}
+	cout << "endvex\t";
+	for (int i = 0; i < n; i++) {
+		cout << CT[i].endvex;
+		if (i == n - 1) {
+			cout << endl;
+		}
+		else {
+			cout << "\t";
+		}
+	}
+	cout << "weight\t";
+	for (int i = 0; i < n; i++) {
+		cout << CT[i].weight;
+		if (i == n - 1) {
+			cout << endl;
+		}
+		else {
+			cout << "\t";
 		}
 	}
 }
 
 int main() {
 	AMGraph tst;
+	edgeset edge;
 	CreateGraph(tst);
 	VerTexType check;
 	PrintGraph(tst);
 	cin >> check;
 	cout << "id: " << LocateVex(tst,check) << endl;
+	VerTexType u;
+	cin >> u;
+	Prim(tst, edge, u);
+	PrintEdge(edge, tst.vexnum - 1);
 	return 0;
 }

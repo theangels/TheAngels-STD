@@ -23,6 +23,11 @@ int LocateVex(AMGraph G,VerTexType vex){
 
 void CreateGraph(AMGraph &G){
 	cin >> G.vexnum >> G.arcnum;
+	for (int i = 0; i < G.vexnum; i++) {
+		for (int j = 0; j < G.vexnum; j++) {
+			G.arcs[i][j] = MaxInt;
+		}
+	}
 	for(int i = 0; i < G.vexnum; i++){
 		cin >> G.vexs[i];
 	}
@@ -44,7 +49,7 @@ void PrintGraph(AMGraph G){
 				cout << endl;
 			}
 			else{
-				cout << " ";
+				cout << "\t\t";
 			}
 		}
 	}
