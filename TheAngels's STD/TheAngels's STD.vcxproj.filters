@@ -51,6 +51,12 @@
     <ClInclude Include="..\TheAngels%27s STD\Seqpoly.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\TheAngels%27s STD\LinkMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TheAngels%27s STD\Graph1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TheAngels%27s STD\Text_Center.cpp">
