@@ -60,10 +60,10 @@
     <ClInclude Include="..\TheAngels%27s STD\Graph2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\study\算法分析\Graph3.h">
+    <ClInclude Include="..\TheAngels%27s STD\Index.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TheAngels%27s STD\Index.h">
+    <ClInclude Include="..\TheAngels%27s STD\Graph3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,5 +71,8 @@
     <ClCompile Include="..\TheAngels%27s STD\Text_Center.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\TheAngels%27s STD\ClassDiagram.cd" />
   </ItemGroup>
 </Project>
