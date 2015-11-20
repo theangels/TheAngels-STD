@@ -72,7 +72,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\TheAngels%27s STD\ClassDiagram.cd" />
-  </ItemGroup>
 </Project>

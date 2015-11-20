@@ -32,9 +32,6 @@
   <ItemGroup>
     <ClCompile Include="..\TheAngels%27s STD\Text_Center.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\TheAngels%27s STD\ClassDiagram.cd" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{892E566E-02C0-403B-8A8F-DB8A04B79A39}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
