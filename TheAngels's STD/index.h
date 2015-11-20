@@ -66,6 +66,7 @@ public:
 			}
 		}
 	}
+
 public:
 	void OutputIndexList() {
 		printf("MainList\n");
