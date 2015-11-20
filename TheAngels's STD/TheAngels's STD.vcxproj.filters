@@ -63,7 +63,7 @@
     <ClInclude Include="..\..\..\..\study\算法分析\Graph3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TheAngels%27s STD\index.h">
+    <ClInclude Include="..\TheAngels%27s STD\Index.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,7 +17,7 @@
     <ClInclude Include="..\TheAngels%27s STD\Binary_tree.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph1.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph2.h" />
-    <ClInclude Include="..\TheAngels%27s STD\index.h" />
+    <ClInclude Include="..\TheAngels%27s STD\Index.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkList.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkMatrix.h" />
     <ClInclude Include="..\TheAngels%27s STD\Linkpoly.h" />
