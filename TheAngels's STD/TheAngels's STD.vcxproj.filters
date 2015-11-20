@@ -60,6 +60,12 @@
     <ClInclude Include="..\TheAngels%27s STD\Graph2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\study\算法分析\Graph3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TheAngels%27s STD\index.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TheAngels%27s STD\Text_Center.cpp">
