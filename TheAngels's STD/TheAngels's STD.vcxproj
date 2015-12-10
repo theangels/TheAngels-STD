@@ -14,6 +14,7 @@
     <ClInclude Include="..\TheAngels%27s STD\AdjLink.h" />
     <ClInclude Include="..\TheAngels%27s STD\AdjMatrix.h" />
     <ClInclude Include="..\TheAngels%27s STD\Binary_tree.h" />
+    <ClInclude Include="..\TheAngels%27s STD\bstree.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph1.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph2.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph3.h" />

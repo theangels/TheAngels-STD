@@ -26,6 +26,9 @@
 using namespace std;
 #define MAX_SIZE 100+5
 typedef long long LL;
+typedef int KeyType;
+typedef int InfoType;
+
 
 //@ Fast Input
 int Get_Int()
