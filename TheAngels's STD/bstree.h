@@ -1,3 +1,11 @@
+#include<stdio.h>
+#include<iostream>
+#include<string.h>
+#include<math.h>
+using namespace std;
+typedef int KeyType;
+typedef int InfoType;
+
 struct ElemType {
 	ElemType() {
 		count = 1;
@@ -5,7 +13,7 @@ struct ElemType {
 	InfoType count;
 	KeyType key;
 };
-typedef struct BSTNode{
+typedef struct BSTNode {
 	BSTNode() {
 		lchild = rchild = NULL;
 	}
@@ -26,7 +34,7 @@ public:
 		}
 	}
 
-public :
+public:
 	void PrintBST() {
 		PrintBST_Inner(root);
 		cout << endl;
@@ -49,7 +57,7 @@ private:
 	}
 
 public:
-	void InsertBST(ElemType  e){
+	void InsertBST(ElemType  e) {
 		//在指针T所指的二叉排序树中插入关键字为e的元素
 		BSTree bt, parent, p;
 		bt = root;
@@ -82,16 +90,17 @@ public:
 
 public:
 	void DeleteBST(KeyType key) {
-		BSTree bt, parent, p;
+		BSTree bt, parent;
 		bt = root;
 		parent = NULL;
 		bool isFind = false;
 		while (bt != NULL) {
-			parent = bt;
 			if (key < bt->data.key) {
+				parent = bt;
 				bt = bt->lchild;
 			}
 			else if (key > bt->data.key) {
+				parent = bt;
 				bt = bt->rchild;
 			}
 			else {
@@ -111,6 +120,7 @@ public:
 				else {
 					parent->rchild = bt->lchild;
 				}
+				delete bt;
 			}
 			else if (bt->lchild == NULL) {//右单
 				if (parent->lchild == bt) {
@@ -119,11 +129,25 @@ public:
 				else {
 					parent->rchild = bt->rchild;
 				}
+				delete bt;
 			}
 			else {//双分支
-
+				BSTree tmp = bt->lchild;
+				BSTree tmpparent = bt;
+				while (tmp->rchild != NULL) {
+					tmpparent = tmp;
+					tmp = tmp->rchild;
+				}
+				bt->data = tmp->data;
+				if (tmpparent->lchild == tmp) {
+					tmpparent->lchild = tmp->lchild;
+				}
+				else {
+					tmpparent->rchild = tmp->lchild;
+				}
+				delete tmp;
 			}
-		}	
+		}
 	}
 
 public:
@@ -156,6 +180,6 @@ public:
 		return parent->data;
 	}
 
-private:
+public:
 	BSTree root;
 };
