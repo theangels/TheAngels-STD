@@ -69,6 +69,9 @@
     <ClInclude Include="..\TheAngels%27s STD\bstree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\TheAngels%27s STD\hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TheAngels%27s STD\Text_Center.cpp">
