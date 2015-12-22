@@ -18,7 +18,7 @@
     <ClInclude Include="..\TheAngels%27s STD\Graph1.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph2.h" />
     <ClInclude Include="..\TheAngels%27s STD\Graph3.h" />
-    <ClInclude Include="..\TheAngels%27s STD\hash.h" />
+    <ClInclude Include="myhash.h" />
     <ClInclude Include="..\TheAngels%27s STD\Index.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkList.h" />
     <ClInclude Include="..\TheAngels%27s STD\LinkMatrix.h" />

@@ -69,7 +69,7 @@
     <ClInclude Include="..\TheAngels%27s STD\bstree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TheAngels%27s STD\hash.h">
+    <ClInclude Include="myhash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

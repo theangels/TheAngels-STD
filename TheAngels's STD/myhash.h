@@ -9,9 +9,9 @@ typedef struct{
 	int count;
 }ElemType,HashTable[13];
 
-class hash{
+class myhash{
 public:
-	hash(KeyType x[], int n){
+	myhash(KeyType x[], int n){
 		len = n;
 		for(int i = 0; i < 13; i++){
 			ha[i].count = 0;

@@ -1,15 +1,12 @@
-#include"bstree.h"
+#include"myhash.h"
 int main(void) {
-	bstree tst;
-	ElemType in;
-	ElemType m;
-	in.key = 7;
-	tst.PrintBST();
-	tst.InsertBST(in);
-	tst.PrintBST();
-	tst.DeleteBST(18);
-	tst.PrintBST();
-	m = tst.MaxBST();
-	printf("Max : %d-%d\n", m.key, m.count);
+	int x[13];
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> x[i];
+	}
+	myhash tst(x, n);
+	tst.DispHT();
 	return 0;
 }
