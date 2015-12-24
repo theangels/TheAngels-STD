@@ -11,7 +11,7 @@ int main(void) {
 	for (int i = 1; i <= n; i++) {
 		cout << tst[i].name << ":" << tst[i].score << endl;
 	}
-	InsertSort(tst, n);
+	ExchangeSort(tst,1,n);
 	cout << "After sort" << endl;
 	for (int i = 1; i <= n; i++) {
 		cout << tst[i].name << ":" << tst[i].score << endl;
